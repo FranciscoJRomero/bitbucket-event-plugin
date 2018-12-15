@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+  <plugin-info>
+    <description>${project.description}</description>
+    <version>${project.version}</version>
+    <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+    <param name="plugin-icon">images/pluginIcon.png</param>
+    <param name="plugin-logo">images/pluginLogo.png</param>
+  </plugin-info>
+  <!-- add our i18n resource -->
+  <resource type="i18n" name="i18n" location="Bitbucket_Test_Plugin"/>
+  <!-- add our web resources -->
+  <web-resource key="Bitbucket_Test_Plugin-resources" name="Bitbucket_Test_Plugin Web Resources">
+    <dependency>com.atlassian.auiplugin:ajs</dependency>
+    <resource type="download" name="Bitbucket_Test_Plugin.css" location="/css/Bitbucket_Test_Plugin.css"/>
+    <resource type="download" name="Bitbucket_Test_Plugin.js" location="/js/Bitbucket_Test_Plugin.js"/>
+    <resource type="download" name="images/" location="/images"/>
+    <context>Bitbucket_Test_Plugin</context>
+  </web-resource>
+  <repository-hook key="pre-receive-hook-validator" name="Pre Receive Hook Validator" i18n-name-key="pre-receive-hook-validator.name" class="com.bitbucket.events.hook.PreReceiveHookValidator">
+    <description key="pre-receive-hook-validator.description">The Pre Receive Hook Validator Plugin</description>
+    <icon>icon-example.png</icon>
+  </repository-hook>
+</atlassian-plugin>
