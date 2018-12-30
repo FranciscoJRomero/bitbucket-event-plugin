@@ -22,4 +22,8 @@
     <description key="pre-receive-hook-validator.description">The Pre Receive Hook Validator Plugin</description>
     <icon>icon-example.png</icon>
   </repository-hook>
+  <repository-hook key="my-pre-receive-branch-creation-hook" name="My Pre Receive Branch Creation Hook" i18n-name-key="my-pre-receive-branch-creation-hook.name" class="com.bitbucket.events.hook.MyPreReceiveBranchCreationHook">
+    <description key="my-pre-receive-branch-creation-hook.description">The My Pre Receive Branch Creation Hook Plugin</description>
+    <icon>icon-example.png</icon>
+  </repository-hook>
 </atlassian-plugin>
