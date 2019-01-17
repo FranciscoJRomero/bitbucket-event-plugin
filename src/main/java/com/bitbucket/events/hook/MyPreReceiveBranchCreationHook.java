@@ -18,14 +18,17 @@ public class MyPreReceiveBranchCreationHook implements PreRepositoryHook<BranchC
     @Override
     public RepositoryHookResult preUpdate(@Nonnull PreRepositoryHookContext preRepositoryHookContext,
                                           @Nonnull BranchCreationHookRequest branchCreationHookRequest) {
+        log.error("\r\nRef Change from branch hook:");
         for (RefChange refChange : branchCreationHookRequest.getRefChanges()) {
-            log.error("\r\nRef Change from branch hook: " + refChange.toString());
             if (refChange.getType() == RefChangeType.DELETE) {
-                return RepositoryHookResult.rejected("rejected", "every commit will be rejected");
+                return RepositoryHookResult.rejected("rejected",
+                        "every commit will be rejected");
             } else if (refChange.getType() == RefChangeType.ADD) {
-                return RepositoryHookResult.rejected("Add from branch creation", "something happened");
+                return RepositoryHookResult.rejected("Add from branch creation",
+                        "something happened");
             } else {
-                return RepositoryHookResult.rejected("Rejected from branch creation", "something happened");
+                return RepositoryHookResult.rejected("Rejected from branch creation",
+                        "something happened");
             }
         }
         return RepositoryHookResult.accepted();

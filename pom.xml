@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.bitbucket.events</groupId>
-    <artifactId>Bitbucket_Test_Plugin</artifactId>
+    <artifactId>Bitbucket-Test-Plugin</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <organization>
-        <name>Example Company</name>
+        <name>Franciscos Plugin</name>
         <url>http://www.example.com/</url>
     </organization>
-    <name>Bitbucket_Test_Plugin</name>
+    <name>Bitbucket Test Plugin</name>
     <description>This is the com.bitbucket.events:Bitbucket_Test_Plugin plugin for Atlassian Bitbucket Server.</description>
     <packaging>atlassian-plugin</packaging>
     <dependencyManagement>
