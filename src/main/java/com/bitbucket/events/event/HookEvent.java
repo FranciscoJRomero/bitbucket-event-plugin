@@ -11,34 +11,27 @@ import com.atlassian.event.api.EventPublisher;
 import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
+
 import javax.inject.Inject;
 import javax.inject.Named;
 
+//@ExportAsService({HookEvent.class})
 @Named("HookEventSomeUniqueName")
 public class HookEvent {
     private static Logger log = LoggerFactory.getLogger(HookEvent.class);
     @ComponentImport
-    EventListenerRegistrar eventListener;
-    @ComponentImport
     RepositoryHookService hookService;
-    @ComponentImport
-    EventPublisher eventPublisher;
 
 
     @Inject
-    private HookEvent(RepositoryHookService hookService, EventListenerRegistrar eventListener,
-                      EventPublisher eventPublisher) {
+    private HookEvent(RepositoryHookService hookService, EventListenerRegistrar eventListener) {
         log.error("Registered Hook Event");
         System.out.println("Something constructor");
         this.hookService = hookService;
-        this.eventListener = eventListener;
-        this.eventPublisher = eventPublisher;
-        this.eventListener.register(this);
-        this.eventPublisher.publish(this);
     }
 
     public void finalize() {
-        eventListener.unregister(this);
+        log.error("finalize");
     }
 
     @EventListener(scope = "Work 1!")
